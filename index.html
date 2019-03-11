@@ -1,0 +1,84 @@
+<html>
+
+<head>
+
+	<meta http-Equiv="Cache-Control" Content="no-cache" />
+
+    <meta http-Equiv="Pragma" Content="no-cache" />
+
+    <meta http-Equiv="Expires" Content="0" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script>
+
+	var urls = [
+
+	"https://matheusaraujo.github.io/dti-1-1/index3.html",
+
+	"https://docs.google.com/spreadsheets/d/e/2PACX-1vQk9bPzyaZ-zuR1iazktzgY18D_2ZERRL9zI3ibxmHjGlT6cQ5_DkVoe2Ig-kyG-J8o3a9GLf_P9xB7/pubhtml?gid=1410690244&single=true",
+
+	"https://docs.google.com/spreadsheets/d/e/2PACX-1vQk9bPzyaZ-zuR1iazktzgY18D_2ZERRL9zI3ibxmHjGlT6cQ5_DkVoe2Ig-kyG-J8o3a9GLf_P9xB7/pubhtml?gid=952395459&single=true",
+
+	"https://docs.google.com/spreadsheets/d/e/2PACX-1vQk9bPzyaZ-zuR1iazktzgY18D_2ZERRL9zI3ibxmHjGlT6cQ5_DkVoe2Ig-kyG-J8o3a9GLf_P9xB7/pubhtml?gid=125209604&single=true",
+	
+	"https://docs.google.com/spreadsheets/d/e/2PACX-1vQk9bPzyaZ-zuR1iazktzgY18D_2ZERRL9zI3ibxmHjGlT6cQ5_DkVoe2Ig-kyG-J8o3a9GLf_P9xB7/pubhtml?gid=372201115&single=true",
+
+	"https://docs.google.com/spreadsheets/d/e/2PACX-1vQk9bPzyaZ-zuR1iazktzgY18D_2ZERRL9zI3ibxmHjGlT6cQ5_DkVoe2Ig-kyG-J8o3a9GLf_P9xB7/pubhtml?gid=1208298093&single=true"
+
+	];
+
+	var i = 0;
+
+
+
+	function redirect_url(){
+
+		if( i < urls.length ){
+
+			setTimeout(function(){
+
+				if (i > 0) {
+					$('iframe').attr('src', urls[i] + "&refresh="+(new Date()));
+				}
+				else {
+					$('iframe').attr('src', urls[i]);
+				}
+
+				i++;
+
+				var frameElement = document.getElementById("frame");
+
+				frameElement.contentWindow.location.href = frameElement.src;
+
+				redirect_url();
+
+			}, 20000);
+
+		}
+
+		else
+
+		{
+
+			i=0;
+
+			redirect_url();
+
+		}
+
+	}
+
+
+
+	redirect_url();
+
+</script>
+
+</head>
+
+<body>
+
+<iframe id = "frame" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
+
+</body>
